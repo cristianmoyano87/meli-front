@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { find } from '../services/meli';
-import { Box, Image, Spinner, Flex, Text } from "@chakra-ui/react";
+import { Box, Image, Spinner, Flex, Text, Center } from "@chakra-ui/react";
 
 export default function Items() {
     const [results, setResults] = useState()
@@ -13,7 +13,7 @@ export default function Items() {
     }, [search])
 
     if (typeof(results) == 'undefined')
-        return <>
+        return <Center h='100vh'>
             <h1>Buscando: {search.slice(8)}</h1>
             <Spinner
             thickness='4px'
@@ -22,7 +22,7 @@ export default function Items() {
             color='blue.500'
             size='xl'
             />
-        </>
+        </Center>
     
     return <>
         <Box width='100%' bg='lightgrey' pl='15%' pr='15%'>

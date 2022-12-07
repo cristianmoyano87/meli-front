@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom"
 import { getDetail } from "../services/meli"
 import { useEffect, useState } from "react"
-import { Spinner, Box, Flex, Image, Text, Button } from "@chakra-ui/react"
+import { Spinner, Box, Flex, Image, Text, Button, Center } from "@chakra-ui/react"
 import fallback from './logo-300x300.jpg'
 
 
@@ -20,7 +20,7 @@ export default function Detail () {
     }, [id])
 
     if (typeof(result) == 'undefined')
-    return <>
+    return <Center h='100vh'>
         <Spinner
         thickness='4px'
         speed='0.65s'
@@ -28,7 +28,7 @@ export default function Detail () {
         color='blue.500'
         size='xl'
         />
-    </>
+    </Center>
 
     return <>
         <Box width='100%' bg='lightgrey' pt='30px' pb='30px' pl='15%' pr='15%'>
